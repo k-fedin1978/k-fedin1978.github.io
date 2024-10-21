@@ -5,7 +5,7 @@ payForm.onsubmit = (event) => {
     const middleName = payFormData.get('middleName')
     const lastName = payFormData.get('lastName')
     const phone = payFormData.get('phone')
-    const email = payFormData.get('email')
+    const eml = payFormData.get('email')
     const comment = payFormData.get('comment')
     const chbx = document.getElementById('monthly')
     const monthly = chbx.checked ? true : false
@@ -17,9 +17,9 @@ payForm.onsubmit = (event) => {
             description: comment, //назначение
             amount: 100, //сумма
             currency: 'RUB', //валюта
-            accountId: email, //идентификатор плательщика (необязательно)
-            invoiceId: '', //номер заказа  (необязательно)
-            email: email, //email плательщика (необязательно)
+            accountId: eml, //идентификатор плательщика (необязательно)
+            invoiceId: '123456', //номер заказа  (необязательно)
+            email: eml, //email плательщика (необязательно)
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
             data: {
