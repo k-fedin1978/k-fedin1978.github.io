@@ -1,0 +1,11 @@
+h1 {
+    text-align: center;
+}
+
+textarea {
+    resize: none;
+}
+
+input:invalid {
+    border: red solid 3px;
+}
