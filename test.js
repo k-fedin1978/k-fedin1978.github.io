@@ -13,7 +13,7 @@ payForm.onsubmit = (event) => {
     var widget = new cp.CloudPayments();
     widget.pay('charge',
         {
-            publicId: 'pk_aff17de359b486f45c12b4e4fdab0', //id из личного кабинета
+            publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
             description: comment, //назначение
             amount: 100, //сумма
             currency: 'RUB', //валюта
