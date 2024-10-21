@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
+    <title>Тестовая форма</title>
+</head>
+
+<body>
+    <h1>Принимаем пожертвования</h1>
+    <form id="payForm" action="">
+        <label>
+            Имя
+            <input type="text" name="firstName" id="firstName" required>
+        </label>
+        <label>
+            Отчество
+            <input type="text" name="middleName" id="middleName">
+        </label>
+        <label>
+            Фамилия
+            <input type="text" name="lastName" id="lastName" required>
+        </label>
+        <label>
+            Телефон
+            <input type="tel" name="phone" id="phone" required pattern="\+7\s[0-9]{3}\s[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                title="+7 XXX XXX-XX-XX">
+        </label>
+        <label>
+            E-mail
+            <input type="email" name="email" id="email" required
+                pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$">
+        </label>
+        <label>
+            Сделать платеж ежемесячным
+            <input type="checkbox" name="monthly" id="monthly" checked="1">
+        </label>
+        <label>
+            Комментарий
+            <textarea rows="3" cols="30" name="comment" id="comment" maxlength="100"></textarea>
+        </label>
+        <button type="submit">Оплата</button>
+    </form>
+    <script src="./test.js"></script>
+</body>
+
+</html>
