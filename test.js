@@ -21,7 +21,8 @@ payForm.onsubmit = (event) => {
         city: '',
         country: '',
         phone: phone,
-        postcode: ''
+        postcode: '',
+        comment: comment
 
     };
 
