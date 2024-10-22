@@ -1,18 +1,21 @@
 body {
     padding: 20px;
     justify-content: center;
-    color: #1e1f26;
+    background-color: #9fe2df;
     font: 16px/1.5 sans-serif;
 }
 
 h1 {
+    font-size: 48px;
     text-align: center;
+    color: #1e90ff;
 }
 
 form {
     width: 300px;
-    border: 1px solid #ae63a4;
+    border: 1px solid blue;
     padding: 10px 24px;
+    background-color: #abcdef;
 }
 button {
     
@@ -30,5 +33,5 @@ textarea {
 }
 
 input:invalid {
-    border: red solid 3px;
+    border: red solid 1px;
 }
