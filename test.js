@@ -68,7 +68,9 @@ payForm.onsubmit = (event) => {
         },
         {
             onSuccess: function (options) { // success
-                widget.charge({ // options
+                if (monthly) {
+
+                    widget.charge({ // options
                         publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
                         description: 'Подписка на ежемесячные пожертвования', //назначение
                         amount: 100, //сумма
@@ -83,7 +85,8 @@ payForm.onsubmit = (event) => {
                         function (reason, options) { // fail
                             //действие при неуспешной оплате
                         });
-                },
+                }
+            },
             onFail: function (reason, options) { // fail
                 //действие при неуспешной оплате
             },
