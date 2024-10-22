@@ -23,7 +23,16 @@ payForm.onsubmit = (event) => {
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
             data: {
-                // myProp: 'myProp value'
+                firstName: firstName,
+                lastName: lastName,
+                middleName: middleName,
+                birth: '',
+                address: '',
+                street: '',
+                city: '',
+                country: '',
+                phone: phone,
+                postcode: ''
             },
             configuration: {
                 common: {
