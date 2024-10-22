@@ -34,12 +34,12 @@ payForm.onsubmit = (event) => {
                 phone: phone,
                 postcode: ''
             },
-            configuration: {
-                common: {
-                    // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
-                    // failRedirectUrl: "https://{ваш сайт}/fail"        // при оплате по T-Pay
-                }
-            },
+            // configuration: {
+            //     common: {
+            //         // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
+            //         // failRedirectUrl: "https://{ваш сайт}/fail"        // при оплате по T-Pay
+            //     }
+            // },
             payer: {
                 firstName: firstName,
                 lastName: lastName,
@@ -55,7 +55,32 @@ payForm.onsubmit = (event) => {
         },
         {
             onSuccess: function (options) { // success
-                //действие при успешной оплате
+                if (monthly) {
+                    let data = {}
+                    data.CloudPayments = {
+                        CustomerReceipt: {},
+                        recurrent: {
+                            interval: 'Month',
+                            period: 1,
+                            CustomerReceipt: {}
+                        }
+                    }
+                    widget.charge({ // options
+                        publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
+                        description: 'Подписка на ежемесячные пожертвования', //назначение
+                        amount: 100, //сумма
+                        currency: 'RUB', //валюта
+                        invoiceId: '1234567', //номер заказа  (необязательно)
+                        accountId: eml, //идентификатор плательщика (обязательно для создания подписки)
+                        data: data
+                    },
+                        function (options) { // success
+                            //действие при успешной оплате
+                        },
+                        function (reason, options) { // fail
+                            //действие при неуспешной оплате
+                        });
+                }
             },
             onFail: function (reason, options) { // fail
                 //действие при неуспешной оплате
