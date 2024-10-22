@@ -11,6 +11,30 @@ payForm.onsubmit = (event) => {
     const monthly = chbx.checked ? true : false
 
     var widget = new cp.CloudPayments();
+    var data = {
+        firstName: firstName,
+        lastName: lastName,
+        middleName: middleName,
+        birth: '',
+        address: '',
+        street: '',
+        city: '',
+        country: '',
+        phone: phone,
+        postcode: ''
+
+    };
+
+    if (monthly) {
+        data.CloudPayments = {
+            CustomerReceipt: {},
+            recurrent: {
+                interval: 'Month',
+                period: 1,
+                CustomerReceipt: {}
+            }
+        }
+    }
     widget.pay('charge',
         {
             publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
@@ -22,24 +46,13 @@ payForm.onsubmit = (event) => {
             email: eml, //email плательщика (необязательно)
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
-            data: {
-                firstName: firstName,
-                lastName: lastName,
-                middleName: middleName,
-                birth: '',
-                address: '',
-                street: '',
-                city: '',
-                country: '',
-                phone: phone,
-                postcode: ''
+            data: data,
+            configuration: {
+                common: {
+                    // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
+                    //  failRedirectUrl: "https://{ваш сайт}/fail"        // при оплате по T-Pay
+                }
             },
-            // configuration: {
-            //     common: {
-            //         // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
-            //         // failRedirectUrl: "https://{ваш сайт}/fail"        // при оплате по T-Pay
-            //     }
-            // },
             payer: {
                 firstName: firstName,
                 lastName: lastName,
@@ -55,17 +68,7 @@ payForm.onsubmit = (event) => {
         },
         {
             onSuccess: function (options) { // success
-                if (monthly) {
-                    let data = {}
-                    data.CloudPayments = {
-                        CustomerReceipt: {},
-                        recurrent: {
-                            interval: 'Month',
-                            period: 1,
-                            CustomerReceipt: {}
-                        }
-                    }
-                    widget.charge({ // options
+                widget.charge({ // options
                         publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
                         description: 'Подписка на ежемесячные пожертвования', //назначение
                         amount: 100, //сумма
@@ -80,8 +83,7 @@ payForm.onsubmit = (event) => {
                         function (reason, options) { // fail
                             //действие при неуспешной оплате
                         });
-                }
-            },
+                },
             onFail: function (reason, options) { // fail
                 //действие при неуспешной оплате
             },
