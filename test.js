@@ -10,7 +10,7 @@ payForm.onsubmit = (event) => {
     const chbx = document.getElementById('monthly')
     const monthly = chbx.checked ? true : false
 
-    var widget = new cp.CloudPayments({language: "en-EN"});
+    var widget = new cp.CloudPayments();
     var data = {
         firstName: firstName,
         lastName: lastName,
