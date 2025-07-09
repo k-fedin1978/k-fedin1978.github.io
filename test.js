@@ -22,7 +22,8 @@ payForm.onsubmit = (event) => {
         country: '',
         phone: phone,
         postcode: '',
-        comment: comment
+        comment: comment,
+        culture: 'en-US'
 
     };
     var receipt = {
