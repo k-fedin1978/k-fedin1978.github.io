@@ -13,7 +13,7 @@ payForm.onsubmit = (event) => {
     var widget = new cp.CloudPayments({
     language: "en-US",
     // email: "",
-    disableEmail: true,
+    // disableEmail: true,
     applePaySupport: false,
     googlePaySupport: false,
     yandexPaySupport: false,
@@ -133,6 +133,7 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
 
 
