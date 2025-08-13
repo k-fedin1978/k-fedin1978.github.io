@@ -83,7 +83,7 @@ payForm.onsubmit = (event) => {
             disableEmail: true,
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
-            data: data,
+            // data: data,
             configuration: {
                 common: {
                     // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
@@ -133,6 +133,7 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
 
 
