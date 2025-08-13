@@ -19,7 +19,7 @@ payForm.onsubmit = (event) => {
     yandexPaySupport: false,
     tinkoffPaySupport: false,
     tinkoffInstallmentSupport: false,
-    sbpSupport: false
+    sbpSupport: true
 });
     var data = {
         firstName: firstName,
@@ -133,6 +133,7 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
 
 
