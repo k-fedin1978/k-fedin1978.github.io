@@ -78,7 +78,8 @@ payForm.onsubmit = (event) => {
             currency: 'RUB', //валюта
             accountId: eml, //идентификатор плательщика (необязательно)
             invoiceId: '123456', //номер заказа  (необязательно)
-            email: eml, //email плательщика (необязательно)
+            // email: eml, //email плательщика (необязательно)
+            disableEmail: true,
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
             data: data,
@@ -131,4 +132,5 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
