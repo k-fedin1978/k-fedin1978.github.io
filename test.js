@@ -79,6 +79,7 @@ payForm.onsubmit = (event) => {
             accountId: eml, //идентификатор плательщика (необязательно)
             invoiceId: '123456', //номер заказа  (необязательно)
             // email: eml, //email плательщика (необязательно)
+            requireEmail: false,
             disableEmail: true,
             skin: "mini", //дизайн виджета (необязательно)
             autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
@@ -132,5 +133,6 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
 
