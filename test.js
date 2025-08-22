@@ -5,7 +5,7 @@ payForm.onsubmit = (event) => {
     const middleName = payFormData.get('middleName')
     const lastName = payFormData.get('lastName')
     const phone = payFormData.get('phone')
-    // const eml = payFormData.get('email')
+    const eml = payFormData.get('email')
     const comment = payFormData.get('comment')
     const chbx = document.getElementById('monthly')
     const monthly = chbx.checked ? true : false
@@ -133,6 +133,7 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
 
 
 
