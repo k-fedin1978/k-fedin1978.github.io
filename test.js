@@ -72,7 +72,6 @@ payForm.onsubmit = (event) => {
             requireEmail: false,
             disableEmail: true,
             skin: "mini",
-            autoClose: '',
             data: data,
             configuration: {
                 common: {
@@ -123,3 +122,4 @@ payForm.onsubmit = (event) => {
         }
     )
 }
+
