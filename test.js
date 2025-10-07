@@ -29,24 +29,24 @@ payForm.onsubmit = (event) => {
     var receipt = {
         Items: [//товарные позиции
             {
-                label: 'Подписка Premium+ {Профи}', //то что в фигурных скобках брать из поля name выбранного тарифа
-                price: 100.00, //цена (брать из тарифа)
-                quantity: 1.00, //всегда 1
-                amount: 100.00, //сумма (также брать из тарифа)
-                vat: null, //ставка НДС
-                method: 0, // тег-1214 признак способа расчета - признак способа расчета
-                object: 0, // тег-1212 признак предмета расчета - признак предмета товара, работы, услуги, платежа, выплаты, иного предмета расчета
+                label: 'Пожертвование',
+                price: 100.00,
+                quantity: 1.00,
+                amount: 100.00,
+                vat: null,
+                method: 0,
+                object: 0,
             }
         ],
-        taxationSystem: 0, //система налогообложения; необязательный, если у вас одна система налогообложения
-        email: 'user@example.com', //e-mail покупателя (берем от юзера)
-        phone: '', //телефон покупателя (берем из юзера)
-        isBso: false, //чек является бланком строгой отчетности
+        taxationSystem: 0,
+        email: eml,
+        phone: phone,
+        isBso: false,
         amounts: {
-            electronic: 100.00, // Сумма оплаты (берем из тарифа)
-            advancePayment: 0.00, // Сумма из предоплаты (зачетом аванса) (2 знака после запятой)
-            credit: 0.00, // Сумма постоплатой(в кредит) (2 знака после запятой)
-            provision: 0.00 // Сумма оплаты встречным предоставлением (сертификаты, др. мат.ценности) (2 знака после запятой)
+            electronic: 100.00,
+            advancePayment: 0.00,
+            credit: 0.00,
+            provision: 0.00
         }
     };
 
@@ -62,18 +62,18 @@ payForm.onsubmit = (event) => {
     }
     widget.pay('charge',
         {
-            publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
-            description: comment, //назначение
-            amount: 100, //сумма
-            currency: 'RUB', //валюта
-            accountId: eml, //идентификатор плательщика (необязательно)
-            invoiceId: '123456', //номер заказа  (необязательно)
-            // email: eml, //email плательщика (необязательно)
+            publicId: 'pk_305db2f56ee1392ea43aa62568664',
+            description: comment,
+            amount: 100,
+            currency: 'RUB',
+            accountId: eml,
+            invoiceId: '123456',
+            email: eml,
             requireEmail: false,
             disableEmail: true,
-            skin: "mini", //дизайн виджета (необязательно)
-            autoClose: '', //время в секундах до авто-закрытия виджета (необязательный)
-            // data: data,
+            skin: "mini",
+            autoClose: '',
+            data: data,
             configuration: {
                 common: {
                     // successRedirectUrl: "https://{ваш сайт}/success", // адреса для перенаправления 
@@ -94,41 +94,32 @@ payForm.onsubmit = (event) => {
             }
         },
         {
-            onSuccess: function (options) { // success
+            onSuccess: function (options) {
+                console.log("Payment Success!")
                 if (monthly) {
-
-                    widget.charge({ // options
-                        publicId: 'pk_305db2f56ee1392ea43aa62568664', //id из личного кабинета
-                        description: 'Подписка на ежемесячные пожертвования', //назначение
-                        amount: 100, //сумма
-                        currency: 'RUB', //валюта
-                        invoiceId: '1234567', //номер заказа  (необязательно)
-                        accountId: eml, //идентификатор плательщика (обязательно для создания подписки)
+                    widget.charge({
+                        publicId: 'pk_305db2f56ee1392ea43aa62568664',
+                        description: 'Подписка на ежемесячные пожертвования',
+                        amount: 100,
+                        currency: 'RUB',
+                        invoiceId: '1234567',
+                        accountId: eml,
                         data: data
                     },
-                        function (options) { // success
-                            //действие при успешной оплате
+                        function (options) {
+                            console.log("Subscription Success!")
                         },
-                        function (reason, options) { // fail
-                            //действие при неуспешной оплате
+                        function (reason, options) {
+                            condole.log("Subscription Failed!")
                         });
                 }
             },
-            onFail: function (reason, options) { // fail
-                //действие при неуспешной оплате
+            onFail: function (reason, options) {
+                condole.log("Payment Failed!")
             },
-            onComplete: function (paymentResult, options) { //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
-                //например вызов вашей аналитики
+            onComplete: function (paymentResult, options) {
+                console.log("Payment Complete!")
             }
         }
     )
 }
-
-
-
-
-
-
-
-
-
