@@ -27,7 +27,7 @@ const launchWidget = () => {
       recurrent: 
       {
         period: 1, // частота списания
-        interval: 'Month', // интервал списания
+        interval: "Month", // интервал списания
         amount: 100, // сумма
       },
     },
