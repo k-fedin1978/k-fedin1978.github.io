@@ -35,5 +35,5 @@ const launchWidget = () => {
       console.log('error', error);
   });
 }
-
-btn.addEventListener('click', launchWidget)
+public start(intentParams: CreateIntentCommand): Promise<WidgetResult>
+document.querySelector('#checkout').onclick = start
