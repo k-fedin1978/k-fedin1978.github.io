@@ -23,14 +23,6 @@ const launchWidget = () => {
     skin: "modern", //дизайн виджета (необязательно)
     cryptogramMode: false, // признак режима работы виджета. Если указано true - вместо проведения оплаты будет сформирована криптограмма карточных данных
     payerServiceFee: 50, // комиссия, оплачиваемая пользователем
-    if (monthly) {
-      recurrent: 
-      {
-        period: 1, // частота списания
-        interval: "Month", // интервал списания
-        amount: 100, // сумма
-      },
-    },
     successRedirectUrl: "https://k-fedin1978.github.io",
     failRedirectUrl: "https://k-fedin1978.github.io",
     retryPayment: false,
