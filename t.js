@@ -5,7 +5,7 @@ const lastName = payFormData.get('lastName')
 const phone = payFormData.get('phone')
 const eml = payFormData.get('email')
 const comment = payFormData.get('comment')
-const chbx = document.getElementById('monthly'
+const chbx = document.getElementById('monthly')
 const monthly = chbx.checked ? true : false
 
 
