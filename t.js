@@ -9,7 +9,7 @@ const chbx = document.getElementById('monthly')
 const monthly = chbx.checked ? true : false
 
 
-const btn = document.getElementById("payButton")
+const btn = document.getElementById("checkout")
 
 const widget = new cp.CloudPayments();
 
@@ -36,4 +36,4 @@ const launchWidget = () => {
   });
 }
 
-document.querySelector('#checkout').onclick = launchWidget
+btn.addEventListener('click', launchWidget)
